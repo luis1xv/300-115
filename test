@@ -1,0 +1,7 @@
+Security:
+The access layer provides services for additional security against
+unauthorized access to the network by using tools as such:
+	port security
+	DHCPsnooping
+	DAI - Dynamic ARP Inspection
+	IP Source Guard
