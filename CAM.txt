@@ -1,0 +1,81 @@
+
+Switch1>show mac address-table
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+   1    aabb.cc00.0300    DYNAMIC     Et0/1
+   1    aabb.cc00.0400    DYNAMIC     Et0/2
+   1    aabb.cc00.0500    DYNAMIC     Et0/3
+   1    aabb.cc00.0600    DYNAMIC     Et1/1
+   1    aabb.cc00.0700    DYNAMIC     Et1/1
+Total Mac Addresses for this criterion: 5
+
+
+Switch1>show mac address-table interface ethernet 1/1
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+   1    aabb.cc00.0600    DYNAMIC     Et1/1
+   1    aabb.cc00.0700    DYNAMIC     Et1/1
+Total Mac Addresses for this criterion: 2
+
+
+Switch1>show mac address-table vlan 1
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+   1    aabb.cc00.0300    DYNAMIC     Et0/1
+   1    aabb.cc00.0400    DYNAMIC     Et0/2
+   1    aabb.cc00.0500    DYNAMIC     Et0/3
+   1    aabb.cc00.0600    DYNAMIC     Et1/1
+Total Mac Addresses for this criterion: 4
+
+
+Switch1>sh cdp nei
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone,
+                  D - Remote, C - CVTA, M - Two-port Mac Relay
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+Switch2          Eth 1/1           127              R S   Linux Uni Eth 1/1
+
+
+CAM Aging Time
+CAM tables can accommodate a lot of entries for frame forwarding. However, there is not enough space for every address in a large network. For that reason, addresses that have not been heard from for a time (stale entries) are aged-out. That time is also called aging time.
+
+
+Switch1>show mac address-table aging-time
+Global Aging Time:  300
+Vlan    Aging Time
+----    ----------
+
+
+
+Switch1>en
+Switch1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch1(config)#mac add
+Switch1(config)#mac address-table agin
+Switch1(config)#mac address-table aging-time 600
+Switch1(config)#^Z
+Switch1#
+Switch1#
+Switch1#
+Switch1#
+*Aug  2 03:15:11.601: %SYS-5-CONFIG_I: Configured from console by console
+Switch1#sh mac add a
+% Ambiguous command:  "sh mac add a"
+Switch1#show mac add
+Switch1#show mac address-table ae
+Switch1#show mac address-table ag
+Global Aging Time:  600
+Vlan    Aging Time
+----    ----------
+Switch1#
+Switch1#
